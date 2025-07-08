@@ -12,14 +12,14 @@
       box-sizing: border-box;
     }
 
-   body {
-  font-family: 'Quicksand', sans-serif;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  color: #ffffff;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: radial-gradient(circle at top, #1b1b3a, #301934, #000000);
+      color: #fdf6ff;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
 
     .stars {
       position: absolute;
@@ -50,11 +50,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.1);
       padding: 40px;
       border-radius: 20px;
       backdrop-filter: blur(12px);
-      box-shadow: 0 0 25px rgba(0,0,0,0.1);
+      box-shadow: 0 0 25px rgba(0,0,0,0.2);
       text-align: center;
       z-index: 2;
       animation: fadeInUp 1.5s ease forwards;
@@ -102,7 +102,7 @@
     .planet {
       position: absolute;
       width: 60px;
-      opacity: 0.2;
+      opacity: 0.3;
       z-index: 1;
     }
 
@@ -122,7 +122,7 @@
 </head>
 <body>
 
-  <!-- Stars effect -->
+  <!-- Stars -->
   <div class="stars" id="stars"></div>
 
   <!-- Planet doodles -->
@@ -130,22 +130,15 @@
   <img src="https://cdn-icons-png.flaticon.com/512/4301/4301055.png" class="planet planet2" alt="planet">
   <img src="https://cdn-icons-png.flaticon.com/512/4469/4469554.png" class="planet planet3" alt="planet">
 
-  <!-- Main content -->
+  <!-- Audio -->
+  <audio id="bg-music" src="https://auratf.github.io/Birthday/Lastnight.mp3" autoplay loop muted></audio>
+
+  <!-- Content -->
   <div class="intro">
     <h1>Hmm... ✨</h1>
     <p>Mau liat ga?<br>Hey You! 🎉<br>This is a little surprise for you...</p>
-    <a href="main.html" class="btn">Let's Open 💌</a>
+    <a href="#" class="btn" onclick="playAndRedirect()">Let's Open 💌</a>
   </div>
-
-  <!-- Music player (autoplay + hidden) -->
-  <iframe 
-    width="0" 
-    height="0" 
-    scrolling="no" 
-    frameborder="no" 
-    allow="autoplay" 
-    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2049004680&auto_play=true&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false">
-  </iframe>
 
   <!-- Bintang script -->
   <script>
@@ -157,6 +150,20 @@
       star.style.animationDelay = `${Math.random() * 2}s`;
       starsContainer.appendChild(star);
     }
+
+    function playAndRedirect() {
+      const music = document.getElementById('bg-music');
+      localStorage.setItem('playMusic', 'yes');
+      music.muted = false;
+      music.play().then(() => {
+        setTimeout(() => {
+          window.location.href = 'main.html';
+        }, 300);
+      }).catch(() => {
+        window.location.href = 'main.html';
+      });
+    }
   </script>
+
 </body>
 </html>
