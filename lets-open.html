@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halo!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Quicksand:wght@400;600&family=Sentient:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      position: relative;
+      transition: background 1s ease-in-out;
+      animation: fadePage 2s ease forwards;
+    }
+
+    @keyframes fadePage {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    body::before {
+      content: "";
+      background: url('foto_ultah_optimized.jpg') center/cover no-repeat;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 60px 20px;
+      z-index: 1;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 500px;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 1s ease-out, cardGlow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes cardGlow {
+      0% { box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+      100% { box-shadow: 0 0 30px rgba(255,255,255,0.3); }
+    }
+
+    h1 {
+      font-size: 32px;
+      font-family: 'Sentient', serif;
+      color: #a7dff7;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #a7dff7; }
+      100% { text-shadow: 0 0 20px #a7dff7; }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    p:nth-of-type(1) { animation-delay: 0.6s; }
+    p:nth-of-type(2) { animation-delay: 1s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .emoji {
+      font-size: 40px;
+      margin: 20px 0;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      color: #ccc;
+      animation: fadeIn 1s forwards;
+      animation-delay: 1.5s;
+    }
+
+    .btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #00e6e6;
+      color: #000;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+      animation: fadeIn 1s forwards;
+    }
+
+    .btn:hover {
+      background: #00cccc;
+      transform: scale(1.05);
+    }
+
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .stars span {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: blink 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes blink {
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.5); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .illustration {
+      width: 60px;
+      height: 60px;
+      margin: 20px auto 0;
+      animation: fadeIn 2s ease forwards;
+      filter: drop-shadow(0 0 5px #fff8);
+    }
+  </style>
+</head>
+<body>
+  <!-- Efek Bintang -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Kartu Ucapan -->
+  <div class="card">
+    <div class="emoji">📩💙</div>
+    <h1>Congratulations on another year well-spent, dear!!</h1>
+    <p>
+      I'm so glad you're doing so well! Sehat sehat, panjang umur dan happy terus yaa. Kamu harus tau kalo aku selalu bangga sama apapun yg sedang dan udah kamu lalui, kamu juga harus begitu ya. Jangan lupa buat selalu bagi cerita kamu ke aku yaa, i'm all ears, always. Aku selalu berdoa semoga dimudahkan segala hal yang akan maupun sedang kamu lalui. 
+      Terima kasih selalu jadi orang baik, semoga hal2 baik selalu menyertai kamu. Terus jadi orang baik, tapi jangan sampe lupa sama diri sendiri yaa. Banyak banyak berterimakasih dan bersyukur juga setiap harinya. Jangan lupa berdoa terus disegala situasi. 
+      Ayo kita banyak berjelajah lebih jauh lagi.
+    </p>
+    <p>
+      Thank you for everything you've done for me.
+      You make me feel truly loved and worthy of love 💖
+      You're worthy, you're so loved! ILYSM <3   
+    </p>
+    <div class="signature">– With love, Laaa 🌙</div>
+
+<!-- Tombol Langsung ke Playlist -->
+    <a class="btn" href="https://open.spotify.com/playlist/6u8iQpAXihKxmuq3i2VjUw?si=gbixWLGQTTak0yiwhdXXHw&pi=H_dVPlZaS3apY" target="_blank">Tap this! 📩</a>
+
+    <!-- Player SoundCloud dengan lagu baru -->
+    <div style="margin-top: 25px;">
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/983442805&color=%23463f4a&auto_play=true&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true">
+      </iframe>
+      <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif; font-weight: 100;">
+        <a href="https://soundcloud.com/virjina-bawafie" title="bloomsflow" target="_blank" style="color: #cccccc; text-decoration: none;">bloomsflow</a>
+        ·
+        <a href="https://soundcloud.com/virjina-bawafie/teddy-adhitya-just-you" title="Teddy Adhitya - Just You" target="_blank" style="color: #cccccc; text-decoration: none;">Teddy Adhitya - Just You</a>
+      </div>
+    </div>
+
+    <!-- Lukisan kecil aesthetic -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3799/3799276.png" alt="lukisan bulan bintang" class="illustration">
+  </div>
+
+  <!-- Script untuk Bintang -->
+  <script>
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('span');
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 2}s`;
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
