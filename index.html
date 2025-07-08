@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🔮wht...</title>
+  <title>🔮 wht...</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,34 +14,69 @@
 
     body {
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #ffe6f0, #e0d1f5);
+      background: linear-gradient(135deg, #fbeaff, #dce7ff);
       color: #4a2c5d;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
-      text-align: center;
       overflow: hidden;
       position: relative;
     }
 
+    .stars {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .stars span {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: blink 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes blink {
+      0% { opacity: 0.2; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.5); }
+    }
+
     .intro {
-      z-index: 2;
-      padding: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       background: rgba(255, 255, 255, 0.5);
+      padding: 40px;
       border-radius: 20px;
       backdrop-filter: blur(12px);
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      box-shadow: 0 0 25px rgba(0,0,0,0.1);
+      text-align: center;
+      z-index: 2;
+      animation: fadeInUp 1.5s ease forwards;
     }
 
     h1 {
       font-size: 36px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      animation: floatText 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatText {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
     }
 
     p {
       font-size: 20px;
       margin-bottom: 30px;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 1.2s;
+      opacity: 0;
     }
 
     a.btn {
@@ -54,6 +89,9 @@
       font-weight: bold;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, background-color 0.3s ease;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 2s;
+      opacity: 0;
     }
 
     a.btn:hover {
@@ -65,38 +103,50 @@
       position: absolute;
       width: 60px;
       opacity: 0.2;
+      z-index: 1;
     }
 
-    .planet.planet1 {
-      top: 20px;
-      left: 20px;
+    .planet.planet1 { top: 20px; left: 20px; }
+    .planet.planet2 { bottom: 30px; right: 30px; }
+    .planet.planet3 { top: 50%; right: -20px; transform: translateY(-50%); }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translate(-50%, -40%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
     }
 
-    .planet.planet2 {
-      bottom: 30px;
-      right: 30px;
-    }
-
-    .planet.planet3 {
-      top: 50%;
-      right: -20px;
-      transform: translateY(-50%);
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <!-- Planet Doodle Background -->
+
+  <!-- Stars effect -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Planet doodles -->
   <img src="https://cdn-icons-png.flaticon.com/512/4793/4793430.png" class="planet planet1" alt="planet">
   <img src="https://cdn-icons-png.flaticon.com/512/4301/4301055.png" class="planet planet2" alt="planet">
   <img src="https://cdn-icons-png.flaticon.com/512/4469/4469554.png" class="planet planet3" alt="planet">
 
-  <!-- Content -->
+  <!-- Main content -->
   <div class="intro">
     <h1>Hmm... ✨</h1>
     <p>Mau liat ga?<br>Hey You! 🎉<br>This is a little surprise for you...</p>
     <a href="main.html" class="btn">Let's Open 💌</a>
   </div>
+
+  <!-- Bintang script -->
+  <script>
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('span');
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 2}s`;
+      starsContainer.appendChild(star);
+    }
+  </script>
 </body>
 </html>
-
-
